@@ -328,306 +328,69 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
   .reveal { opacity: 1; transform: none; }
 }
 
-
-/* =================================
-   SOCIAL CONTACT CARDS
-================================= */
-
+/* CONTACT CARDS — TEXT ONLY */
 .contact-socials {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  width: 100%;
-  max-width: 680px;
-  margin-top: 32px;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px;
+    max-width: 620px;
+    margin: 35px auto;
 }
 
-.social-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-  padding: 20px 16px;
-  overflow: hidden;
-
-  color: #fff;
-  text-decoration: none;
-  text-align: left;
-
-  background: rgba(17, 18, 25, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
-}
-
-.social-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-}
-
-.discord-card::before {
-  background: linear-gradient(
-    120deg,
-    rgba(88, 101, 242, 0.2),
-    transparent 75%
-  );
-}
-
-.roblox-card::before {
-  background: linear-gradient(
-    120deg,
-    rgba(255, 130, 50, 0.17),
-    rgba(45, 115, 255, 0.12),
-    transparent 85%
-  );
-}
-
-.social-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-.social-card:hover::before {
-  opacity: 1;
-}
-
-.social-card:focus-visible {
-  outline: 2px solid #ff8737;
-  outline-offset: 4px;
-}
-
-.social-icon {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
-  border-radius: 13px;
-}
-
-.social-icon img {
-  display: block;
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-}
-
-.discord-icon {
-  background: #5865f2;
-}
-
-.roblox-icon {
-  background: linear-gradient(135deg, #ff8737, #367dff);
-}
-
-.social-info {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-width: 0;
-}
-
-.social-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #a3a5b5;
-  font-family: "DM Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 1.2px;
-}
-
-.social-info h3 {
-  margin: 0 0 5px;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 800;
-}
-
-.social-info p {
-  margin: 0;
-  color: #a3a5b5;
-  font-size: 12px;
-  overflow-wrap: anywhere;
-}
-
-.social-arrow {
-  position: relative;
-  z-index: 1;
-  align-self: flex-start;
-  color: #a3a5b5;
-  font-size: 21px;
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
-}
-
-.social-card:hover .social-arrow {
-  color: #fff;
-  transform: translate(3px, -3px);
-}
-
-.contact-note {
-  margin-top: 20px;
-  color: #a3a5b5;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-/* Mobile layout */
-@media (max-width: 600px) {
-  .contact-socials {
-    grid-template-columns: 1fr;
+.contact-socials .social-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 12px;
-  }
-
-  .social-card {
-    padding: 18px 16px;
-  }
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: #15161d;
+    color: #fff;
+    text-decoration: none;
+    text-align: left;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .social-card,
-  .social-card::before,
-  .social-arrow {
-    transition: none;
-  }
-
-  .social-card:hover {
-    transform: none;
-  }
+.contact-socials .social-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff7a35;
 }
 
-
-/* FIX: CONTACT LOGOS AND CARD LAYOUT */
-
-.contact .contact-socials {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 16px;
-  width: 100%;
-  max-width: 680px;
-  margin-top: 32px;
+.contact-socials .social-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
 }
 
-.contact .social-card {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center;
-  min-width: 0;
-  box-sizing: border-box;
+.contact-socials .social-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #ff8a45;
 }
 
-.contact .social-icon {
-  display: flex !important;
-  flex: 0 0 48px !important;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
-  overflow: hidden;
+.contact-socials .roblox-card .social-label {
+    color: #55aaff;
 }
 
-.contact .social-icon img {
-  display: block !important;
-  width: 26px !important;
-  height: 26px !important;
-  max-width: 26px !important;
-  max-height: 26px !important;
-  object-fit: contain;
+.contact-socials .social-name {
+    font-size: 16px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
 }
 
-.contact .social-info {
-  flex: 1;
-  min-width: 0;
+.contact-socials .social-arrow {
+    font-size: 22px;
+    flex-shrink: 0;
+    color: #fff;
 }
 
 @media (max-width: 600px) {
-  .contact .contact-socials {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-
-/* FINAL FIX — COOK1ETWIST CONTACT */
-
-section#contact .contact-content .contact-socials {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: stretch !important;
-  justify-content: center !important;
-  gap: 16px !important;
-  width: 100% !important;
-  max-width: 680px !important;
-  margin: 32px auto 0 !important;
-}
-
-section#contact .contact-content .contact-socials > a.social-card {
-  display: flex !important;
-  flex: 1 1 250px !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  width: auto !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-section#contact .contact-content .social-icon {
-  display: flex !important;
-  flex: 0 0 48px !important;
-  width: 48px !important;
-  min-width: 48px !important;
-  height: 48px !important;
-  min-height: 48px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-}
-
-section#contact .contact-content .social-icon img {
-  display: block !important;
-  position: static !important;
-  width: 26px !important;
-  min-width: 26px !important;
-  max-width: 26px !important;
-  height: 26px !important;
-  min-height: 26px !important;
-  max-height: 26px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  object-fit: contain !important;
-}
-
-section#contact .contact-content .social-info {
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-}
-
-section#contact .contact-content .social-info h3,
-section#contact .contact-content .social-info p {
-  text-align: left !important;
-}
-
-@media (max-width: 560px) {
-  section#contact .contact-content .contact-socials {
-    flex-direction: column !important;
-  }
-
-  section#contact .contact-content .contact-socials > a.social-card {
-    flex: 1 1 auto !important;
-    width: 100% !important;
-  }
+    .contact-socials {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 
