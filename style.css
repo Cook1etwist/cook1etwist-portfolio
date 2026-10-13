@@ -481,20 +481,25 @@ body::after {
     pointer-events: none !important;
 }
 
-/* Canvas des particules */
 #ambient-cubes {
-    position: fixed !important;
+    position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
     display: block;
     pointer-events: none;
-    z-index: 2;
+    z-index: 0;
 }
 
-/* Le contenu du site reste au-dessus des particules */
+/* Le fond du site ne doit pas recouvrir le canvas */
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Le contenu reste au-dessus des particules */
 body > *:not(#ambient-cubes) {
     position: relative;
-    z-index: 3;
+    z-index: 1;
 }
 
