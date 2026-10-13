@@ -12,8 +12,15 @@
   --mono: "DM Mono", monospace;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 95px;
+}
+
 body {
   margin: 0;
   background: var(--bg);
