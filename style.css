@@ -222,19 +222,103 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
 .service-symbol { font-size: 20px; color: #777c8c; transition: color .3s, transform .3s; }
 .service-item:hover .service-symbol { color: var(--orange); transform: translate(3px,-3px); }
 
-.about { display: grid; grid-template-columns: .85fr 1fr; gap: 10%; align-items: center; }
-.about-art { height: 440px; position: relative; overflow: hidden; background: radial-gradient(ellipse at center,#202534,#101116 72%); border: 1px solid var(--line); }
-.about-orb { position: absolute; width: 220px; height: 220px; border-radius: 50%; top: 25%; left: 25%; background: linear-gradient(135deg,#ffad6c,#e35b2c 48%,#4e8cff); filter: saturate(.8); box-shadow: 30px 30px 100px #ff873d1c,-25px -20px 90px #4e8cff1d; }
-.about-square { position: absolute; border: 1px solid #ffffff30; transform: rotate(35deg) skew(-8deg); }
-.square-one { width: 150px; height: 150px; top: 20%; left: 16%; }
-.square-two { width: 210px; height: 210px; top: 25%; left: 29%; border-color: #ffad6c77; }
-.square-three { width: 90px; height: 90px; top: 51%; left: 58%; border-color: #80a6ff99; }
-.about-art-caption { position: absolute; bottom: 20px; left: 20px; color: #9699a7; font-size: 9px; }
-.about-copy h2 { margin: 23px 0; }
-.about-copy > p { color: var(--muted); font-size: 12px; line-height: 2; }
-.about-copy .about-lead { color: #e6e6eb; font-size: 15px; font-weight: 700; line-height: 1.6; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
-.skill-tags span { border: 1px solid var(--line); padding: 9px 11px; border-radius: 3px; color: #c7c9d2; font: 9px var(--mono); }
+/* ========================================
+   COOK1ETWIST — ABOUT / PHOTO
+   ======================================== */
+
+.about {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 10%;
+  align-items: center;
+}
+
+.about-art {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+}
+
+/* Anciennes décorations désactivées */
+.about-orb,
+.about-square {
+  display: none !important;
+}
+
+.about-photo {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 135, 61, 0.4);
+  background: #11131a;
+  box-shadow:
+    0 0 35px rgba(255, 135, 61, 0.1),
+    0 0 30px rgba(78, 140, 255, 0.08);
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.about-photo .about-art-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1;
+  max-width: calc(100% - 32px);
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(10, 12, 18, 0.8);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.about-copy h2 {
+  margin: 23px 0;
+}
+
+.about-copy > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.about-copy .about-lead {
+  color: #e6e6eb;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.skill-tags span {
+  border: 1px solid var(--line);
+  padding: 9px 11px;
+  border-radius: 3px;
+  color: #c7c9d2;
+  font: 9px var(--mono);
+}
 
 .contact { overflow: hidden; background: #0f1015; border-top: 1px solid var(--line); text-align: center; }
 .contact-glow { position: absolute; width: 500px; height: 300px; top: 20%; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg,var(--orange),var(--blue)); opacity: .09; filter: blur(110px); pointer-events: none; }
@@ -263,8 +347,6 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
   .hero-art { transform: scale(.85); }
   .hero h1 { font-size: clamp(52px,7vw,75px); }
   .about { gap: 6%; }
-  .about-art { height: 370px; }
-  .about-orb { width: 170px; height: 170px; }
   .footer { padding: 25px 6%; flex-wrap: wrap; }
 }
 @media (max-width: 650px) {
@@ -307,8 +389,6 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
   .service-item h3 { font-size: 17px; }
   .service-item p { font-size: 11px; }
   .about { grid-template-columns: 1fr; gap: 42px; }
-  .about-art { height: 330px; }
-  .about-orb { width: 170px; height: 170px; top: 24%; left: 27%; }
   .about-copy h2 { font-size: 42px; }
   .contact h2 { font-size: clamp(53px,13vw,76px); }
   .footer { justify-content: space-between; gap: 20px; }
