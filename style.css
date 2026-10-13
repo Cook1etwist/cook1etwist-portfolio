@@ -736,3 +736,52 @@ body {
   letter-spacing: 2px;
 }
 
+/* ===== CUSTOM SCROLLBAR ===== */
+
+/* Pour Chrome, Edge et Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0d12;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #ff873d,
+    #ff5e2e
+  );
+  border-radius: 10px;
+  border: 2px solid #0b0d12;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Quand la souris passe dessus */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #4e8cff,
+    #246bff
+  );
+  box-shadow: 0 0 12px rgba(78, 140, 255, 0.7);
+}
+
+/* Quand on clique et maintient la barre */
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    #246bff,
+    #00c8ff
+  );
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.9);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #ff873d #0b0d12;
+}
+
