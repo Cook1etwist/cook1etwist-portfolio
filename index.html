@@ -433,27 +433,24 @@
   }
 
   function moveThumb(clientY) {
-    const rect = track.getBoundingClientRect();
-    const maxThumbTop = track.clientHeight - thumb.offsetHeight;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
+  const rect = track.getBoundingClientRect();
+  const maxThumbTop = track.clientHeight - thumb.offsetHeight;
+  const maxScroll =
+    document.documentElement.scrollHeight - window.innerHeight;
 
-    if (maxThumbTop <= 0 || maxScroll <= 0) return;
+  if (maxThumbTop <= 0 || maxScroll <= 0) return;
 
-    const newTop = Math.max(
-      0,
-      Math.min(maxThumbTop, clientY - rect.top - grabOffset)
-    );
+  const newTop = Math.max(
+    0,
+    Math.min(maxThumbTop, clientY - rect.top - grabOffset)
+  );
 
-    // Déplace visuellement le curseur immédiatement.
-    thumb.style.top = `${newTop}px`;
+  const targetScroll = (newTop / maxThumbTop) * maxScroll;
 
-    // Synchronise le défilement de la page.
-    window.scrollTo(
-      0,
-      (newTop / maxThumbTop) * maxScroll
-    );
-  }
+  // Synchronisation immédiate du curseur et de la page
+  thumb.style.top = `${newTop}px`;
+  window.scrollTo(0, targetScroll);
+}
 
   thumb.addEventListener("pointerdown", event => {
     dragging = true;
