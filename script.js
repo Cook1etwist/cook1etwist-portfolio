@@ -24,16 +24,19 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// Reveal content as it enters the screen.
+// Reveal content every time it enters the screen.
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
+    (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          // Relance l'animation quand l'élément entre dans l'écran
           entry.target.classList.add("is-visible");
-          currentObserver.unobserve(entry.target);
+        } else {
+          // Prépare l'élément pour la prochaine apparition
+          entry.target.classList.remove("is-visible");
         }
       });
     },
