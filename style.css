@@ -524,3 +524,11 @@ body {
   }
 }
 
+/* Supprimer le grain / bruit visuel */
+.noise {
+    display: none !important;
+    opacity: 0 !important;
+    background: none !important;
+    pointer-events: none !important;
+}
+
