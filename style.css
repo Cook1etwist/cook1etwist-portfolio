@@ -448,54 +448,53 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
     min-height: 170px;
   }
 }
+
 /* ========================================
    COOK1ETWIST — SMOOTH ORANGE & BLUE
    ======================================== */
 
-html {
-    background: #080b12;
-}
-
+html,
 body {
     background-color: #080b12 !important;
     background-image:
         radial-gradient(
-            ellipse 55% 48% at 0% 8%,
-            rgba(255, 112, 24, 0.25) 0%,
-            rgba(255, 112, 24, 0.12) 35%,
-            transparent 75%
+            ellipse 60% 55% at 0% 5%,
+            rgba(255, 112, 24, 0.28) 0%,
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 55% 55% at 100% 72%,
-            rgba(35, 110, 255, 0.28) 0%,
-            rgba(35, 110, 255, 0.12) 38%,
-            transparent 75%
+            ellipse 60% 60% at 100% 75%,
+            rgba(35, 110, 255, 0.30) 0%,
+            transparent 70%
         ) !important;
-    background-attachment: fixed;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* Désactive le grain éventuellement ajouté sur le fond */
-body::before {
+/* Désactive les couches de grain les plus courantes */
+body::before,
+body::after {
+    content: none !important;
     background-image: none !important;
+    filter: none !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Floating cube particles */
+/* Canvas des particules */
 #ambient-cubes {
-    position: fixed;
+    position: fixed !important;
     inset: 0;
     width: 100%;
     height: 100%;
     display: block;
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
 }
 
-/* Keep website content above the particles */
+/* Le contenu du site reste au-dessus des particules */
 body > *:not(#ambient-cubes) {
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
