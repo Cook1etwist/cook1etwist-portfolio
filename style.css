@@ -714,11 +714,13 @@ body {
 }
 
 .about-photo img {
-  width: 100%;
-  height: 100%;
   display: block;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   object-position: center;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .about-photo .about-art-caption {
