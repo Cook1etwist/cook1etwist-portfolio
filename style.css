@@ -497,30 +497,30 @@ body {
     isolation: isolate;
 }
 
-/* ========================================
-   MOBILE MENU — ALWAYS ON TOP
-   ======================================== */
-
+/* FIX DEFINITIF : MENU MOBILE */
 @media (max-width: 650px) {
   .header {
-    position: sticky;
+    position: sticky !important;
     top: 0;
-    z-index: 9999;
+    z-index: 999999 !important;
+    isolation: isolate;
   }
 
   .nav {
-    position: absolute;
-    top: 71px;
-    left: 0;
-    right: 0;
-    z-index: 10000;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999999 !important;
 
+    display: none;
     background: #0b0c10 !important;
-    opacity: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
   }
 
   .nav.open {
-    display: flex;
+    display: flex !important;
   }
 }
 
