@@ -463,21 +463,23 @@
   });
 
   thumb.addEventListener("pointermove", event => {
-    if (!dragging) return;
+  if (!dragging) return;
 
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const maxThumbTop = track.clientHeight - thumb.offsetHeight;
+  const maxThumbTop = track.clientHeight - thumb.offsetHeight;
+  if (maxThumbTop <= 0) return;
 
-    if (maxThumbTop <= 0) return;
+  const maxScroll =
+    document.documentElement.scrollHeight - window.innerHeight;
 
-    const delta = event.clientY - startY;
+  const delta = event.clientY - startY;
+  const targetScroll =
+    startScroll + (delta / maxThumbTop) * maxScroll;
 
-    window.scrollTo(
-      0,
-      startScroll + (delta / maxThumbTop) * maxScroll
-    );
+  window.scrollTo({
+    top: targetScroll,
+    behavior: "instant"
   });
+});
 
   thumb.addEventListener("pointerup", () => {
     dragging = false;
