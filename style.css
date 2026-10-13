@@ -510,3 +510,53 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
   }
 }
 
+
+/* FIX: CONTACT LOGOS AND CARD LAYOUT */
+
+.contact .contact-socials {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px;
+  width: 100%;
+  max-width: 680px;
+  margin-top: 32px;
+}
+
+.contact .social-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.contact .social-icon {
+  display: flex !important;
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  overflow: hidden;
+}
+
+.contact .social-icon img {
+  display: block !important;
+  width: 26px !important;
+  height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  object-fit: contain;
+}
+
+.contact .social-info {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .contact .contact-socials {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
