@@ -396,5 +396,116 @@
     <a class="back-top" href="#home">BACK TO TOP ↑</a>
     <span class="copyright">© <span id="year"></span> COOK1ETWIST</span>
   </footer>
+  <script>
+(() => {
+  const track = document.createElement("div");
+  track.id = "custom-scrollbar";
+
+  const thumb = document.createElement("div");
+  thumb.id = "custom-scrollbar-thumb";
+
+  track.appendChild(thumb);
+  document.body.appendChild(track);
+
+  let dragging = false;
+  let startY = 0;
+  let startScroll = 0;
+
+  function updateScrollbar() {
+    const viewport = window.innerHeight;
+    const totalHeight = document.documentElement.scrollHeight;
+    const trackHeight = track.clientHeight;
+
+    const thumbHeight = Math.max(
+      45,
+      (viewport / totalHeight) * trackHeight
+    );
+
+    const maxThumbTop = trackHeight - thumbHeight;
+    const maxScroll = totalHeight - viewport;
+
+    const thumbTop = maxScroll > 0
+      ? (window.scrollY / maxScroll) * maxThumbTop
+      : 0;
+
+    thumb.style.height = `${thumbHeight}px`;
+    thumb.style.top = `${thumbTop}px`;
+  }
+
+  function scrollFromPointer(event) {
+    const rect = track.getBoundingClientRect();
+    const thumbHeight = thumb.offsetHeight;
+    const maxThumbTop = track.clientHeight - thumbHeight;
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const pointerY = event.clientY - rect.top;
+    const thumbTop = Math.max(
+      0,
+      Math.min(maxThumbTop, pointerY - thumbHeight / 2)
+    );
+
+    window.scrollTo(
+      0,
+      maxThumbTop > 0
+        ? (thumbTop / maxThumbTop) * maxScroll
+        : 0
+    );
+  }
+
+  thumb.addEventListener("pointerdown", event => {
+    dragging = true;
+    startY = event.clientY;
+    startScroll = window.scrollY;
+
+    thumb.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
+
+  thumb.addEventListener("pointermove", event => {
+    if (!dragging) return;
+
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const maxThumbTop = track.clientHeight - thumb.offsetHeight;
+
+    if (maxThumbTop <= 0) return;
+
+    const delta = event.clientY - startY;
+
+    window.scrollTo(
+      0,
+      startScroll + (delta / maxThumbTop) * maxScroll
+    );
+  });
+
+  thumb.addEventListener("pointerup", () => {
+    dragging = false;
+  });
+
+  thumb.addEventListener("pointercancel", () => {
+    dragging = false;
+  });
+
+  track.addEventListener("pointerdown", event => {
+    if (event.target !== track) return;
+    scrollFromPointer(event);
+  });
+
+  window.addEventListener("scroll", updateScrollbar, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateScrollbar);
+
+  window.addEventListener("load", updateScrollbar);
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(updateScrollbar).observe(document.body);
+  }
+
+  updateScrollbar();
+})();
+</script>
 </body>
 </html>
