@@ -528,3 +528,93 @@ body {
     pointer-events: none !important;
 }
 
+/* ========================================
+   COOK1ETWIST — SIGNATURE LOGO
+   ======================================== */
+
+.logo {
+  gap: 13px;
+}
+
+.logo-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+
+  overflow: hidden;
+  border: 1px solid rgba(255, 135, 61, 0.4);
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 135, 61, 0.17),
+      transparent 65%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 135, 61, 0.09),
+      rgba(78, 140, 255, 0.12)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 4px 18px rgba(255, 135, 61, 0.06);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logo-symbol {
+  display: block;
+  width: 31px;
+  height: 31px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 5px rgba(255, 135, 61, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover .logo-mark {
+  border-color: rgba(255, 135, 61, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 24px rgba(255, 135, 61, 0.15),
+    0 0 18px rgba(78, 140, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.logo:hover .logo-symbol {
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 0 5px rgba(255, 135, 61, 0.25))
+    drop-shadow(0 0 4px rgba(78, 140, 255, 0.15));
+}
+
+/* Mobile : conserver un logo compact */
+@media (max-width: 650px) {
+  .logo-mark {
+    flex-basis: 37px;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+  }
+
+  .logo-symbol {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+/* Accessibilité : respecter les préférences d'animation */
+@media (prefers-reduced-motion: reduce) {
+  .logo-mark,
+  .logo-symbol {
+    transition: none;
+  }
+}
+
