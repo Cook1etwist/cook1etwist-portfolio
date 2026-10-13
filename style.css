@@ -328,139 +328,125 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
   .reveal { opacity: 1; transform: none; }
 }
 
-/* CONTACT CARDS — TEXT ONLY */
-.contact-socials {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 16px;
-    max-width: 620px;
-    margin: 35px auto;
-}
+/* ========================================
+   COOK1ETWIST — CONTACT CARDS
+   ======================================== */
 
-.contact-socials .social-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    min-width: 0;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
-    background: #15161d;
-    color: #fff;
-    text-decoration: none;
-    text-align: left;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.contact-socials .social-card:hover {
-    transform: translateY(-4px);
-    border-color: #ff7a35;
-}
-
-.contact-socials .social-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 0;
-}
-
-.contact-socials .social-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #ff8a45;
-}
-
-.contact-socials .roblox-card .social-label {
-    color: #55aaff;
-}
-
-.contact-socials .social-name {
-    font-size: 16px;
-    font-weight: 600;
-    overflow-wrap: anywhere;
-}
-
-.contact-socials .social-arrow {
-    font-size: 22px;
-    flex-shrink: 0;
-    color: #fff;
-}
-
-@media (max-width: 600px) {
-    .contact-socials {
-        grid-template-columns: 1fr !important;
-    }
-}
 .contact-socials {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   flex-wrap: wrap;
   gap: 20px;
+  width: 100%;
   max-width: 600px;
   margin: 35px auto;
 }
 
 .contact-socials .social-card {
   box-sizing: border-box;
-  width: 220px;
-  min-height: 175px;
-  padding: 28px 20px;
   display: flex;
+  flex: 1 1 220px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
+
+  width: 100%;
+  max-width: 280px;
+  min-width: 0;
+  min-height: 185px;
+  padding: 28px 20px;
+
   color: #fff;
   background: #15161d;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   text-decoration: none;
-  transition: .2s ease;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.contact-socials .social-card svg {
-  display: block;
-  width: 28px !important;
-  height: 28px !important;
-  min-width: 28px !important;
-  max-width: 28px !important;
-  flex-shrink: 0;
+.contact-socials .social-card:hover {
+  transform: translateY(-4px);
 }
 
 .contact-socials .discord-card:hover {
   border-color: #5865f2;
-  color: #8c96ff;
+  background: rgba(88, 101, 242, 0.08);
 }
 
 .contact-socials .roblox-card:hover {
-  border-color: #3399ff;
-  color: #55aaff;
+  border-color: var(--blue);
+  background: rgba(78, 140, 255, 0.08);
 }
 
+/* Fixed SVG dimensions */
+.contact-socials .social-card .social-icon-svg {
+  display: block;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  flex: 0 0 28px !important;
+  overflow: hidden;
+}
+
+/* Labels */
 .contact-socials .social-label {
-  font-size: 12px;
+  display: block;
+  color: var(--orange);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
   letter-spacing: 2px;
-  font-weight: 600;
+}
+
+.contact-socials .roblox-card .social-label {
+  color: var(--blue);
 }
 
 .contact-socials .social-name {
-  font-size: 15px;
+  display: block;
   color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .contact-socials .social-arrow {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #a1a1aa;
+  display: block;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 500px) {
+/* Keyboard accessibility */
+.contact-socials .social-card:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contact-socials {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
   .contact-socials .social-card {
+    flex: 0 1 auto;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
+    min-height: 170px;
   }
 }
-
 
 
