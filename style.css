@@ -482,3 +482,20 @@ body::before {
     pointer-events: none !important;
 }
 
+/* Floating cube particles */
+#ambient-cubes {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Keep website content above the particles */
+body > *:not(#ambient-cubes) {
+    position: relative;
+    z-index: 1;
+}
+
