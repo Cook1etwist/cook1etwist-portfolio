@@ -497,9 +497,30 @@ body {
     isolation: isolate;
 }
 
-/* Le contenu reste au-dessus des particules */
-body > *:not(#ambient-cubes) {
-    position: relative;
-    z-index: 1;
+/* ========================================
+   MOBILE MENU — ALWAYS ON TOP
+   ======================================== */
+
+@media (max-width: 650px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+
+  .nav {
+    position: absolute;
+    top: 71px;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+
+    background: #0b0c10 !important;
+    opacity: 1;
+  }
+
+  .nav.open {
+    display: flex;
+  }
 }
 
