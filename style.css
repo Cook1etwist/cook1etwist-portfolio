@@ -560,3 +560,75 @@ h2 { font-size: clamp(35px, 4.3vw, 58px); line-height: 1.08; letter-spacing: -.0
 }
 
 
+/* FINAL FIX — COOK1ETWIST CONTACT */
+
+section#contact .contact-content .contact-socials {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  margin: 32px auto 0 !important;
+}
+
+section#contact .contact-content .contact-socials > a.social-card {
+  display: flex !important;
+  flex: 1 1 250px !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+section#contact .contact-content .social-icon {
+  display: flex !important;
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+section#contact .contact-content .social-icon img {
+  display: block !important;
+  position: static !important;
+  width: 26px !important;
+  min-width: 26px !important;
+  max-width: 26px !important;
+  height: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+}
+
+section#contact .contact-content .social-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+section#contact .contact-content .social-info h3,
+section#contact .contact-content .social-info p {
+  text-align: left !important;
+}
+
+@media (max-width: 560px) {
+  section#contact .contact-content .contact-socials {
+    flex-direction: column !important;
+  }
+
+  section#contact .contact-content .contact-socials > a.social-card {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+  }
+}
+
+
+
