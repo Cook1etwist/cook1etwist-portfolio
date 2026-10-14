@@ -1182,3 +1182,60 @@ body.gallery-open {
     transition: none;
   }
 }
+
+/* ===== RESTORE ORIGINAL PROJECT LAYOUT ===== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* Grand projet en haut */
+.project-card.project-large {
+  grid-column: 1 / -1;
+}
+
+/* Taille du grand visuel */
+.project-card.project-large .project-visual {
+  height: 380px;
+}
+
+/* Les deux projets en dessous */
+.project-card:not(.project-large) .project-visual {
+  height: 230px;
+}
+
+/* Les images remplissent leurs cartes */
+.project-visual.project-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-visual.project-image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adaptation mobile */
+@media (max-width: 650px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card.project-large {
+    grid-column: auto;
+  }
+
+  .project-card.project-large .project-visual {
+    height: 250px;
+  }
+
+  .project-card:not(.project-large) .project-visual {
+    height: 210px;
+  }
+}
