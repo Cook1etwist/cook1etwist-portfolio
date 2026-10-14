@@ -198,10 +198,10 @@ document.getElementById("year").textContent = new Date().getFullYear();
       images: [
         { src: "images/lobbies/lobby-01.png", name: "LOBBY 01" },
         { src: "images/lobbies/lobby-02.png", name: "LOBBY 02" },
-        { src: "images/lobbies/lobby-02.png", name: "LOBBY 03" },
-        { src: "images/lobbies/lobby-02.png", name: "LOBBY 04" },
-        { src: "images/lobbies/lobby-02.png", name: "LOBBY 05" },
-        { src: "images/lobbies/lobby-02.png", name: "LOBBY 06" }
+        { src: "images/lobbies/lobby-03.png", name: "LOBBY 03" },
+        { src: "images/lobbies/lobby-04.png", name: "LOBBY 04" },
+        { src: "images/lobbies/lobby-05.png", name: "LOBBY 05" },
+        { src: "images/lobbies/lobby-06.png", name: "LOBBY 06" }
       ]
     },
 
