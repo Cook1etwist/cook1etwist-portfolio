@@ -161,57 +161,83 @@
       </div>
 
       <div class="project-grid">
-        <article class="project-card project-large reveal">
-          <div class="project-visual visual-simulator">
-            <div class="visual-tag">01 — ENVIRONMENTS</div>
-            <div class="scene scene-orange"></div>
-            <div class="scene scene-blue"></div>
-            <div class="scene scene-floor"></div>
-            <div class="scene scene-tower"></div>
-            <div class="scene scene-cube"></div>
-            <div class="visual-caption">SIMULATOR<br>WORLDS</div>
-            <span class="visual-placeholder">CONCEPT VISUAL — REPLACE WITH YOUR BUILD</span>
-          </div>
-          <div class="project-info">
-            <div><h3>Simulator Environments</h3><p>World design / Studs Style</p></div>
-            <span class="project-arrow">↗</span>
-          </div>
-        </article>
 
-        <article class="project-card reveal">
-          <div class="project-visual visual-lobby">
-            <div class="visual-tag">02 — SOCIAL SPACES</div>
-            <div class="lobby-ring"></div>
-            <div class="lobby-block lobby-block-one"></div>
-            <div class="lobby-block lobby-block-two"></div>
-            <div class="lobby-block lobby-block-three"></div>
-            <div class="visual-caption">LOBBIES<br>& ZONES</div>
-            <span class="visual-placeholder">CONCEPT VISUAL — REPLACE WITH YOUR BUILD</span>
-          </div>
-          <div class="project-info">
-            <div><h3>Lobbies & Zones</h3><p>Layout / Player experience</p></div>
-            <span class="project-arrow">↗</span>
-          </div>
-        </article>
+  <!-- SIMULATOR WORLDS -->
+  <article class="project-card project-large reveal">
+    <div class="project-visual project-image"
+         data-gallery="simulator"
+         role="button"
+         tabindex="0"
+         aria-label="Ouvrir la galerie Simulator Worlds">
 
-        <article class="project-card reveal">
-          <div class="project-visual visual-game">
-            <div class="visual-tag">03 — IN DEVELOPMENT</div>
-            <div class="game-platform"></div>
-            <div class="game-block game-block-one"></div>
-            <div class="game-block game-block-two"></div>
-            <div class="game-block game-block-three"></div>
-            <div class="game-beam"></div>
-            <div class="visual-caption">PARKOUR ×<br>SIMULATOR × COMBAT</div>
-            <span class="visual-placeholder">CURRENT PROJECT — WORK IN PROGRESS</span>
-          </div>
-          <div class="project-info">
-            <div><h3>Hybrid Game Project</h3><p>Parkour / Simulator / Combat</p></div>
-            <span class="project-arrow">↗</span>
-          </div>
-        </article>
+      <img src="images/simulator/world-01.jpg"
+           alt="Construction Roblox — Simulator Worlds">
+
+      <div class="visual-tag">01 — ENVIRONMENTS</div>
+      <div class="visual-caption">SIMULATOR<br>WORLDS</div>
+      <span class="gallery-hint">VIEW GALLERY ↗</span>
+    </div>
+
+    <div class="project-info">
+      <div>
+        <h3>Simulator Environments</h3>
+        <p>World design / Studs Style</p>
       </div>
-      <p class="work-note">The artwork above is made from CSS shapes as a temporary preview. Replace it with screenshots of your actual Roblox builds before sharing the portfolio.</p>
+      <span class="project-arrow">↗</span>
+    </div>
+  </article>
+
+  <!-- LOBBIES & ZONES -->
+  <article class="project-card reveal">
+    <div class="project-visual project-image"
+         data-gallery="lobbies"
+         role="button"
+         tabindex="0"
+         aria-label="Ouvrir la galerie Lobbies and Zones">
+
+      <img src="images/lobbies/lobby-01.jpg"
+           alt="Construction Roblox — Lobbies and Zones">
+
+      <div class="visual-tag">02 — SOCIAL SPACES</div>
+      <div class="visual-caption">LOBBIES<br>&amp; ZONES</div>
+      <span class="gallery-hint">VIEW GALLERY ↗</span>
+    </div>
+
+    <div class="project-info">
+      <div>
+        <h3>Lobbies &amp; Zones</h3>
+        <p>Layout / Player experience</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </div>
+  </article>
+
+  <!-- HYBRID GAME PROJECT -->
+  <article class="project-card reveal">
+    <div class="project-visual project-image"
+         data-gallery="hybrid"
+         role="button"
+         tabindex="0"
+         aria-label="Ouvrir la galerie Hybrid Game Project">
+
+      <img src="images/hybrid/project-01.jpg"
+           alt="Construction Roblox — Hybrid Game Project">
+
+      <div class="visual-tag">03 — IN DEVELOPMENT</div>
+      <div class="visual-caption">PARKOUR ×<br>SIMULATOR × COMBAT</div>
+      <span class="gallery-hint">VIEW GALLERY ↗</span>
+    </div>
+
+    <div class="project-info">
+      <div>
+        <h3>Hybrid Game Project</h3>
+        <p>Parkour / Simulator / Combat</p>
+      </div>
+      <span class="project-arrow">↗</span>
+    </div>
+  </article>
+
+</div>
     </section>
 
     <section class="services section" id="services">
@@ -355,7 +381,60 @@
       </div>
     </section>
   </main>
+  <!-- ===== GALLERY MODAL ===== -->
+<div class="gallery-modal"
+     id="galleryModal"
+     aria-hidden="true">
 
+  <div class="gallery-backdrop" data-gallery-close></div>
+
+  <div class="gallery-window"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="galleryCategory">
+
+    <div class="gallery-topbar">
+      <div class="gallery-heading">
+        <span class="gallery-live-dot"></span>
+        <span id="galleryCategory">SIMULATOR WORLDS</span>
+      </div>
+
+      <button class="gallery-close"
+              type="button"
+              data-gallery-close
+              aria-label="Fermer la galerie">&times;</button>
+    </div>
+
+    <div class="gallery-stage">
+      <img id="galleryImage" src="" alt="">
+
+      <button class="gallery-arrow gallery-prev"
+              type="button"
+              aria-label="Image précédente">&#8592;</button>
+
+      <button class="gallery-arrow gallery-next"
+              type="button"
+              aria-label="Image suivante">&#8594;</button>
+    </div>
+
+    <div class="gallery-bottom">
+      <div class="gallery-caption">
+        <span class="gallery-small-label">BUILD SHOWCASE</span>
+        <span id="galleryImageName">WORLD 01</span>
+      </div>
+
+      <div class="gallery-counter">
+        <span id="galleryCurrent">01</span>
+        <span class="gallery-counter-line"></span>
+        <span id="galleryTotal">04</span>
+      </div>
+    </div>
+
+    <div class="gallery-progress">
+      <div id="galleryProgressBar"></div>
+    </div>
+  </div>
+</div>
   <footer class="footer">
     <a class="logo footer-logo" href="#home">
       <span class="logo-mark">
