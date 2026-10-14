@@ -186,30 +186,30 @@ document.getElementById("year").textContent = new Date().getFullYear();
     simulator: {
       title: "SIMULATOR WORLDS",
       images: [
-        { src: "images/simulator/world-01.jpg", name: "WORLD 01" },
-        { src: "images/simulator/world-02.jpg", name: "WORLD 02" },
-        { src: "images/simulator/world-03.jpg", name: "WORLD 03" },
-        { src: "images/simulator/world-04.jpg", name: "WORLD 04" }
+        { src: "images/simulator/world-01.png", name: "WORLD 01" },
+        { src: "images/simulator/world-02.png", name: "WORLD 02" },
+        { src: "images/simulator/world-03.png", name: "WORLD 03" },
+        { src: "images/simulator/world-04.png", name: "WORLD 04" }
       ]
     },
 
     lobbies: {
       title: "LOBBIES & ZONES",
       images: [
-        { src: "images/lobbies/lobby-01.jpg", name: "LOBBY 01" },
-        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 02" },
-        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 03" },
-        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 04" },
-        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 05" },
-        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 06" }
+        { src: "images/lobbies/lobby-01.png", name: "LOBBY 01" },
+        { src: "images/lobbies/lobby-02.png", name: "LOBBY 02" },
+        { src: "images/lobbies/lobby-02.png", name: "LOBBY 03" },
+        { src: "images/lobbies/lobby-02.png", name: "LOBBY 04" },
+        { src: "images/lobbies/lobby-02.png", name: "LOBBY 05" },
+        { src: "images/lobbies/lobby-02.png", name: "LOBBY 06" }
       ]
     },
 
     hybrid: {
       title: "HYBRID GAME PROJECT",
       images: [
-        { src: "images/hybrid/project-01.jpg", name: "PROJECT 01" },
-        { src: "images/hybrid/project-02.jpg", name: "PROJECT 02" }
+        { src: "images/hybrid/project-01.png", name: "PROJECT 01" },
+        { src: "images/hybrid/project-02.png", name: "PROJECT 02" }
       ]
     }
   };
