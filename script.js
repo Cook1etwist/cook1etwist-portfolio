@@ -177,3 +177,183 @@ document.getElementById("year").textContent = new Date().getFullYear();
     }
 })();
 
+/* ========================================
+   COOK1ETWIST — BUILD GALLERIES
+   ======================================== */
+
+(() => {
+  const galleries = {
+    simulator: {
+      title: "SIMULATOR WORLDS",
+      images: [
+        { src: "images/simulator/world-01.jpg", name: "WORLD 01" },
+        { src: "images/simulator/world-02.jpg", name: "WORLD 02" },
+        { src: "images/simulator/world-03.jpg", name: "WORLD 03" },
+        { src: "images/simulator/world-04.jpg", name: "WORLD 04" }
+      ]
+    },
+
+    lobbies: {
+      title: "LOBBIES & ZONES",
+      images: [
+        { src: "images/lobbies/lobby-01.jpg", name: "LOBBY 01" },
+        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 02" },
+        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 03" },
+        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 04" },
+        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 05" },
+        { src: "images/lobbies/lobby-02.jpg", name: "LOBBY 06" }
+      ]
+    },
+
+    hybrid: {
+      title: "HYBRID GAME PROJECT",
+      images: [
+        { src: "images/hybrid/project-01.jpg", name: "PROJECT 01" },
+        { src: "images/hybrid/project-02.jpg", name: "PROJECT 02" }
+      ]
+    }
+  };
+
+  const modal = document.getElementById("galleryModal");
+  if (!modal) return;
+
+  const image = document.getElementById("galleryImage");
+  const category = document.getElementById("galleryCategory");
+  const imageName = document.getElementById("galleryImageName");
+  const current = document.getElementById("galleryCurrent");
+  const total = document.getElementById("galleryTotal");
+  const progress = document.getElementById("galleryProgressBar");
+
+  const closeButton = modal.querySelector(".gallery-close");
+  const previousButton = modal.querySelector(".gallery-prev");
+  const nextButton = modal.querySelector(".gallery-next");
+
+  let activeGallery = null;
+  let activeIndex = 0;
+  let previousFocus = null;
+  let imageRequest = 0;
+
+  const formatNumber = (number) => String(number).padStart(2, "0");
+
+  function displayImage() {
+    const gallery = galleries[activeGallery];
+    if (!gallery) return;
+
+    const item = gallery.images[activeIndex];
+    const requestId = ++imageRequest;
+
+    image.classList.add("is-changing");
+
+    const preload = new Image();
+
+    preload.onload = () => {
+      if (requestId !== imageRequest) return;
+
+      image.src = item.src;
+      image.alt = item.name + " — " + gallery.title;
+      imageName.textContent = item.name;
+      current.textContent = formatNumber(activeIndex + 1);
+      total.textContent = formatNumber(gallery.images.length);
+
+      progress.style.width =
+        ((activeIndex + 1) / gallery.images.length * 100) + "%";
+
+      requestAnimationFrame(() => {
+        if (requestId === imageRequest) {
+          image.classList.remove("is-changing");
+        }
+      });
+    };
+
+    preload.onerror = () => {
+      if (requestId !== imageRequest) return;
+
+      image.classList.remove("is-changing");
+      console.error("Image introuvable :", item.src);
+    };
+
+    preload.src = item.src;
+  }
+
+  function openGallery(name) {
+    const gallery = galleries[name];
+
+    if (!gallery || gallery.images.length === 0) return;
+
+    activeGallery = name;
+    activeIndex = 0;
+    previousFocus = document.activeElement;
+
+    category.textContent = gallery.title;
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("gallery-open");
+
+    displayImage();
+    closeButton.focus();
+  }
+
+  function closeGallery() {
+    if (!activeGallery) return;
+
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("gallery-open");
+
+    activeGallery = null;
+    imageRequest++;
+
+    if (previousFocus && typeof previousFocus.focus === "function") {
+      previousFocus.focus();
+    }
+  }
+
+  function changeImage(direction) {
+    if (!activeGallery) return;
+
+    const images = galleries[activeGallery].images;
+
+    activeIndex =
+      (activeIndex + direction + images.length) % images.length;
+
+    displayImage();
+  }
+
+  // Open a gallery by clicking its card.
+  document.querySelectorAll("[data-gallery]").forEach((card) => {
+    card.addEventListener("click", () => {
+      openGallery(card.dataset.gallery);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openGallery(card.dataset.gallery);
+      }
+    });
+  });
+
+  // Previous and next images.
+  previousButton.addEventListener("click", () => changeImage(-1));
+  nextButton.addEventListener("click", () => changeImage(1));
+
+  // Close buttons and background.
+  modal.querySelectorAll("[data-gallery-close]").forEach((element) => {
+    element.addEventListener("click", closeGallery);
+  });
+
+  // Keyboard controls.
+  document.addEventListener("keydown", (event) => {
+    if (!activeGallery) return;
+
+    if (event.key === "Escape") {
+      closeGallery();
+    } else if (event.key === "ArrowLeft") {
+      changeImage(-1);
+    } else if (event.key === "ArrowRight") {
+      changeImage(1);
+    }
+  });
+})();
+
